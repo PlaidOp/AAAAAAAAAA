@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rounded Buttons Example</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #222222; /* Darker background color */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 20px;
+  }
+
+  .rounded-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #333333;
+    color: white;
+    font-size: 18px; /* Larger text size */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .rounded-button:hover {
+    background-color: #555555;
+  }
+
+  .window-container {
+    position: relative;
+  }
+
+  .unblocked-window {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    border: 3px solid #333;
+    background-color: #f2f2f2;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .unblocked-content {
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .unblocked-content h1 {
+    margin-top: 0;
+  }
+
+  .unblocked-content input,
+  .unblocked-content button {
+    margin: 8px;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .unblocked-content button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  #video-holder {
+    margin-top: 20px;
+  }
+</style>
+<script>
+  function showUnblockedContent() {
+    var unblockedWindow = document.getElementById('unblocked-window');
+    unblockedWindow.style.display = 'block';
+  }
+
+  function loadHtmlContent() {
+    var unblockedContent = `
+      <h1>Custom HTML Content</h1>
+      <p>This is some custom HTML content embedded in the window.</p>
+      <div>
+        <img src="path/to/your/image.jpg" alt="Custom Image">
+      </div>
+      <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <p>22</p> <!-- Embedding the number 22 -->
+      </ul>
+    `;
+    var contentContainer = document.getElementById('video-holder'); // Replace with the appropriate container
+    contentContainer.innerHTML = unblockedContent;
+  }
+</script>
+</head>
+<body>
+  <div class="buttons-container">
+    <div class="rounded-button" onclick="showUnblockedContent()">1</div>
+    <div class="rounded-button" onclick="loadHtmlContent()">22</div>
+    <div class="rounded-button">3</div>
+    <div class="rounded-button">4</div>
+  </div>
+  
+  <div class="window-container">
+    <div class="unblocked-window" id="unblocked-window">
+      <div class="unblocked-content">
+        <h1>YouTube Unblocked</h1>
+        <input id="url" type="text" placeholder="Enter YouTube Link" required>
+        <button id="submit">Watch</button>
+        <button id="fullscreen">Full Screen</button>
+        <div id="video-holder"></div>
+      </div>
+      <script>
+        // Your YouTube Unblocked script here
+
+        /* ... */
+      </script>
+    </div>
+  </div>
+</body>
+</html>
